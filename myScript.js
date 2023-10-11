@@ -18,3 +18,24 @@ console.log(randomComputerSelection(options));
 
 //3. 
 //player and computer selection variables, function that compares two parameters and returns result, result announcement, function that capitalises what pl and com selected
+let playerSelection = 'scissors';
+let computerSelection = 'rock';
+
+function round(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        return 'tie';
+    }
+    else if (playerSelection == 'rock' && computerSelection == 'scissors' ||
+    playerSelection == 'paper' && computerSelection == 'rock' ||
+    playerSelection == 'scissors' && computerSelection == 'paper') {
+        return 'player';
+    }
+    else if (computerSelection == 'rock' && playerSelection == 'scissors' ||
+    computerSelection == 'paper' && playerSelection == 'rock' ||
+    computerSelection == 'scissors' && playerSelection == 'paper'){
+        return 'computer';
+    }
+    else {
+        return 'error';
+    }
+}
