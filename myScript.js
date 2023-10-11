@@ -7,3 +7,11 @@ console.log("hello world!")
 
 //1. 
 let options = ['rock', 'paper', 'scissors'];
+
+//2.
+function randomComputerSelection(arr) {
+    const random = arr[Math.floor(Math.random() * arr.length)];
+    return random;
+}
+
+console.log(randomComputerSelection(options));
