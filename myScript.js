@@ -15,3 +15,6 @@ function randomComputerSelection(arr) {
 }
 
 console.log(randomComputerSelection(options));
+
+//3. 
+//player and computer selection variables, function that compares two parameters and returns result, result announcement, function that capitalises what pl and com selected
