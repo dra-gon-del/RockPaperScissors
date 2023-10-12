@@ -42,7 +42,8 @@ function capitalise(string){
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function result(getRound) {
+function result(playerSelection, computerSelection) {
+    const getRound = round(playerSelection, computerSelection);
     if (getRound == 'tie') {
         console.log("It's a tie!");
     }
@@ -57,11 +58,24 @@ function result(getRound) {
 
 //4. 
 function game() {
+    let playerScore = 0;
+    let computerScore = 0;
     for (let i = 0; i < 5; i++) {
-        let playerScore = 0;
-        let computerScore = 0;
-        result(round(playerSelection, computerSelection));
+        result(playerSelection, computerSelection);
+        if (round(playerSelection, computerSelection) == 'player') {
+            playerScore++;
+        }
+        else if (round(playerSelection, computerSelection) == 'computer') {
+            computerScore++;
+        }
     }
+    if (playerScore === computerScore) {
+        console.log("Tie! No winner or loser!")
+    }
+    else if (playerScore > computerScore) {
+        console.log("Player win! Congratulations!!")
+    }
+    else {console.log("Computer win! Too bad! You lose!!")}
 }
 
 game();
