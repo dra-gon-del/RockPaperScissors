@@ -82,6 +82,22 @@ function result(playerSelection, computerSelection) {
         outcomeDiv.appendChild(p);
 }
 
+function checkWinner(playerScore, computerScore) {
+    if (playerScore === 5) {
+        const h2 = document.createElement('h2');
+        h2.innerText = 'You won! Great job!!';
+        const secondh2 = document.createElement('h2');
+        secondh2.innerText = `Your score: ${playerScore} Computer score: ${computerScore}`
+    }
+
+    if (computerScore ===5) {
+        const h2 = document.createElement('h2');
+        h2.innerText = 'You lost! Too bad!! XP';
+        const secondh2 = document.createElement('h2');
+        secondh2.innerText = `Your score: ${playerScore} Computer score: ${computerScore}`
+    }
+}
+
 rockButton.addEventListener('click', () => {
     const computerSelection = randomComputerSelection(options);
     const playerSelection = 'rock';
