@@ -68,7 +68,7 @@ function result(playerSelection, computerSelection) {
 }
 
 //4. 
-function game() {
+/* function game() {
     let playerScore = 0;
     let computerScore = 0;
     for (let i = 0; i < 5; i++) {
@@ -91,5 +91,5 @@ function game() {
     else {console.log("Computer win! Too bad! You lose!!")}
 }
 
-game();
+game(); */
 
