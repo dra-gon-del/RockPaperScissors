@@ -18,7 +18,7 @@ console.log(randomComputerSelection(options));
 
 //3. 
 //player and computer selection variables, function that compares two parameters and returns result, result announcement, function that capitalises what pl and com selected
-let playerSelection = 'rck';
+let playerSelection = 'rock';
 let computerSelection = 'paper';
 
 function round(playerSelection, computerSelection) {
@@ -40,17 +40,24 @@ function round(playerSelection, computerSelection) {
     }
 }
 
-function result(getRound) {
-    if (getRound == 'tie') {
-        console.log("It's a tie!")
-    }
-    else if (getRound == 'player') {
-        console.log(`Player win! ${playerSelection} beats ${computerSelection}!`)
-    }
-    else if (getRound == 'computer') {
-        console.log(`Computer win! ${computerSelection} beats ${playerSelection}!`)
-    }
-    else {console.log("Oops! Please try again...")}
+function capitalise(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function result(getRound) {
+    if (getRound == 'tie') {
+        console.log("It's a tie!");
+    }
+    else if (getRound == 'player') {
+        console.log(`Player win! ${capitalise(playerSelection)} beats ${capitalise(computerSelection)}!`);
+    }
+    else if (getRound == 'computer') {
+        console.log(`Computer win! ${capitalise(computerSelection)} beats ${capitalise(playerSelection)}!`);
+    }
+    else {console.log("Oops! Please try again...")};
+}
+
+
+
 result(round(playerSelection, computerSelection));
+
