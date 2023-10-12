@@ -14,8 +14,6 @@ function randomComputerSelection(arr) {
     return random;
 }
 
-console.log(randomComputerSelection(options));
-
 //3. 
 //player and computer selection variables, function that compares two parameters and returns result, result announcement, function that capitalises what pl and com selected
 let playerSelection = 'rock';
@@ -57,7 +55,14 @@ function result(getRound) {
     else {console.log("Oops! Please try again...")};
 }
 
+//4. 
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerScore = 0;
+        let computerScore = 0;
+        result(round(playerSelection, computerSelection));
+    }
+}
 
-
-result(round(playerSelection, computerSelection));
+game();
 
