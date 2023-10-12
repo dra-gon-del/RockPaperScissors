@@ -8,13 +8,17 @@ console.log("hello world!")
 //1. 
 let options = ['rock', 'paper', 'scissors'];
 
+let playerScore = 0;
+let computerScore = 0;
+
 const rockButton = document.querySelector('.rockButton');
 const paperButton = document.querySelector('.paperButton');
 const scissorsButton = document.querySelector('.scissorsButton');
 const outcomeDiv = document.querySelector('.outcome');
+const playerScoreSpan = document.querySelector('.player-score');
+const computerScoreSpan = document.querySelector('.computer-score')
 
-let playerScore = 0;
-let computerScore = 0;
+
 
 //2.
 function randomComputerSelection(arr) {
@@ -97,10 +101,16 @@ function checkWinner(playerScore, computerScore) {
     }
 }
 
+function updateScores(playerScore, computerScore) {
+    playerScoreSpan.innerText = `Player: ${playerScore} `;
+    computerScoreSpan.innerText = `Computer: ${computerScore}`;
+}
+
 rockButton.addEventListener('click', () => {
     const computerSelection = randomComputerSelection(options);
     const playerSelection = 'rock';
     result(playerSelection, computerSelection);
+    updateScores(playerScore, computerScore);
     checkWinner(playerScore, computerScore);
 })
 
@@ -108,6 +118,7 @@ paperButton.addEventListener('click', () => {
     const computerSelection = randomComputerSelection(options);
     const playerSelection = 'paper';
     result(playerSelection, computerSelection);
+    updateScores(playerScore, computerScore);
     checkWinner(playerScore, computerScore);
 })
 
@@ -115,6 +126,7 @@ scissorsButton.addEventListener('click', () => {
     const computerSelection = randomComputerSelection(options);
     const playerSelection = 'scissors';
     result(playerSelection, computerSelection);
+    updateScores(playerScore, computerScore);
     checkWinner(playerScore, computerScore)
 })
 
