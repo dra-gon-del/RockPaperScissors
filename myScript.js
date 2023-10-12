@@ -8,6 +8,12 @@ console.log("hello world!")
 //1. 
 let options = ['rock', 'paper', 'scissors'];
 
+const rockButton = document.querySelector('.rockButton');
+const paperButton = document.querySelector('.paperButton');
+const scissorsButton = document.querySelector('.scissorsButton');
+const outcomeDiv = document.querySelector('.outcome');
+
+
 //2.
 function randomComputerSelection(arr) {
     const random = arr[Math.floor(Math.random() * arr.length)];
@@ -56,16 +62,27 @@ function capitalise(string){
 function result(playerSelection, computerSelection) {
     const getRound = round(playerSelection, computerSelection);
     if (getRound == 'tie') {
-        console.log("It's a tie!");
+        const p = document.createElement('p');
+        p.innerText = "It's a tie!";
     }
     else if (getRound == 'player') {
-        console.log(`Player win! ${capitalise(playerSelection)} beats ${capitalise(computerSelection)}!`);
+        const p = document.createElement('p');
+        p.innerText = `Player win! ${capitalise(playerSelection)} beats ${capitalise(computerSelection)}!`;
     }
     else if (getRound == 'computer') {
-        console.log(`Computer win! ${capitalise(computerSelection)} beats ${capitalise(playerSelection)}!`);
+        const p = document.createElement('p');
+        p.innerText = `Computer win! ${capitalise(computerSelection)} beats ${capitalise(playerSelection)}!`;
     }
-    else {console.log("Oops! Please try again...")};
+    else {
+        const p = document.createElement('p');
+        p.innerText = "Oops! Please try again..."};
 }
+
+rockButton.addEventListener('click', () => {
+    const computerSelection = randomComputerSelection(options);
+    const playerSelection = 'rock';
+    result(playerSelection, computerSelection);
+})
 
 //4. 
 /* function game() {
@@ -93,3 +110,5 @@ function result(playerSelection, computerSelection) {
 
 game(); */
 
+
+//add 3 buttons RPS
