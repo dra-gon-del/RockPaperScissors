@@ -112,6 +112,11 @@ rockButton.addEventListener('click', () => {
     result(playerSelection, computerSelection);
     updateScores(playerScore, computerScore);
     checkWinner(playerScore, computerScore);
+    if (playerScore == 5 || computerScore == 5) {
+        rockButton.disabled = true;
+        paperButton.disabled = true;
+        scissorsButton.disabled = true;
+    }
 })
 
 paperButton.addEventListener('click', () => {
@@ -120,6 +125,11 @@ paperButton.addEventListener('click', () => {
     result(playerSelection, computerSelection);
     updateScores(playerScore, computerScore);
     checkWinner(playerScore, computerScore);
+    if (playerScore == 5 || computerScore == 5) {
+        rockButton.disabled = true;
+        paperButton.disabled = true;
+        scissorsButton.disabled = true;
+    }
 })
 
 scissorsButton.addEventListener('click', () => {
@@ -128,6 +138,11 @@ scissorsButton.addEventListener('click', () => {
     result(playerSelection, computerSelection);
     updateScores(playerScore, computerScore);
     checkWinner(playerScore, computerScore)
+    if (playerScore == 5 || computerScore == 5) {
+        rockButton.disabled = true;
+        paperButton.disabled = true;
+        scissorsButton.disabled = true;
+    }
 })
 
 //4. 
