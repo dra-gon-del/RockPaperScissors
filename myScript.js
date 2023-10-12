@@ -14,10 +14,24 @@ function randomComputerSelection(arr) {
     return random;
 }
 
+function getPlayerSelection(){
+    let validatedInput = false;
+    while(validatedInput == false){
+        const choice = prompt("Rock? Paper? Or Scissors?");
+        if(choice == null){
+            continue;
+        }
+        const choiceInLower = choice.toLowerCase();
+        if(options.includes(choiceInLower)){
+            validatedInput = true;
+            return choiceInLower;
+        }
+    }
+}
+
 //3. 
 //player and computer selection variables, function that compares two parameters and returns result, result announcement, function that capitalises what pl and com selected
-let playerSelection = 'rock';
-let computerSelection = 'paper';
+
 
 function round(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
@@ -32,9 +46,6 @@ function round(playerSelection, computerSelection) {
     computerSelection == 'paper' && playerSelection == 'rock' ||
     computerSelection == 'scissors' && playerSelection == 'paper'){
         return 'computer';
-    }
-    else {
-        return 'error';
     }
 }
 
@@ -61,6 +72,8 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
     for (let i = 0; i < 5; i++) {
+        const playerSelection = getPlayerSelection();
+        const computerSelection = randomComputerSelection(options);
         result(playerSelection, computerSelection);
         if (round(playerSelection, computerSelection) == 'player') {
             playerScore++;
