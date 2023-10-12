@@ -13,6 +13,8 @@ const paperButton = document.querySelector('.paperButton');
 const scissorsButton = document.querySelector('.scissorsButton');
 const outcomeDiv = document.querySelector('.outcome');
 
+let playerScore = 0;
+let computerScore = 0;
 
 //2.
 function randomComputerSelection(arr) {
@@ -70,19 +72,18 @@ function result(playerSelection, computerSelection) {
         const p = document.createElement('p');
         p.innerText = `Player win! ${capitalise(playerSelection)} beats ${capitalise(computerSelection)}!`;
         outcomeDiv.appendChild(p);
+        playerScore++;
     }
     else if (getRound == 'computer') {
         const p = document.createElement('p');
         p.innerText = `Computer win! ${capitalise(computerSelection)} beats ${capitalise(playerSelection)}!`;
         outcomeDiv.appendChild(p);
+        computerScore++;
     }
-    else {
-        const p = document.createElement('p');
-        p.innerText = "Oops! Please try again..."};
-        outcomeDiv.appendChild(p);
 }
 
 function checkWinner(playerScore, computerScore) {
+    console.log('1 ', playerScore,'2 ', computerScore)
     if (playerScore === 5) {
         const h2 = document.createElement('h2');
         h2.innerText = 'You won! Great job!!';
@@ -102,18 +103,21 @@ rockButton.addEventListener('click', () => {
     const computerSelection = randomComputerSelection(options);
     const playerSelection = 'rock';
     result(playerSelection, computerSelection);
+    checkWinner(playerScore, computerScore);
 })
 
 paperButton.addEventListener('click', () => {
     const computerSelection = randomComputerSelection(options);
     const playerSelection = 'paper';
     result(playerSelection, computerSelection);
+    checkWinner(playerScore, computerScore);
 })
 
 scissorsButton.addEventListener('click', () => {
     const computerSelection = randomComputerSelection(options);
     const playerSelection = 'scissors';
     result(playerSelection, computerSelection);
+    checkWinner(playerScore, computerScore)
 })
 
 //4. 
