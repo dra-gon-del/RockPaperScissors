@@ -64,23 +64,39 @@ function result(playerSelection, computerSelection) {
     if (getRound == 'tie') {
         const p = document.createElement('p');
         p.innerText = "It's a tie!";
+        outcomeDiv.appendChild(p);
     }
     else if (getRound == 'player') {
         const p = document.createElement('p');
         p.innerText = `Player win! ${capitalise(playerSelection)} beats ${capitalise(computerSelection)}!`;
+        outcomeDiv.appendChild(p);
     }
     else if (getRound == 'computer') {
         const p = document.createElement('p');
         p.innerText = `Computer win! ${capitalise(computerSelection)} beats ${capitalise(playerSelection)}!`;
+        outcomeDiv.appendChild(p);
     }
     else {
         const p = document.createElement('p');
         p.innerText = "Oops! Please try again..."};
+        outcomeDiv.appendChild(p);
 }
 
 rockButton.addEventListener('click', () => {
     const computerSelection = randomComputerSelection(options);
     const playerSelection = 'rock';
+    result(playerSelection, computerSelection);
+})
+
+paperButton.addEventListener('click', () => {
+    const computerSelection = randomComputerSelection(options);
+    const playerSelection = 'paper';
+    result(playerSelection, computerSelection);
+})
+
+scissorsButton.addEventListener('click', () => {
+    const computerSelection = randomComputerSelection(options);
+    const playerSelection = 'scissors';
     result(playerSelection, computerSelection);
 })
 
